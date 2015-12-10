@@ -12,7 +12,6 @@ var Swiper = require('react-native-swiper');
 
 var ParallaxView = require('react-native-parallax-view');
 
-var routes = require('./routes');
 
 var {
   StyleSheet,
@@ -29,7 +28,7 @@ var {
 
 var w = Dimensions.get('window').width;
 var h = Dimensions.get('window').height;
-var RouteMain = React.createClass({
+var ThemeMain = React.createClass({
   getInitialState:function(){
     console.log(this.props.data);
     return {
@@ -77,7 +76,7 @@ var RouteMain = React.createClass({
               </Text>
               {
                 this.state.data['nodes'].map(function(detail){
-                  return <RouteCard data={detail} />
+                  return <ThemeCard data={detail} />
                 })
               }
               <Like data={this.state.data['likes']}/>
@@ -113,7 +112,7 @@ var RouteMain = React.createClass({
   }
 });
 
-var RouteCard = React.createClass({
+var ThemeCard = React.createClass({
   getInitialState:function(){
     return{
       data:this.props.data
@@ -121,7 +120,7 @@ var RouteCard = React.createClass({
   },
   render:function(){
     return (
-      <View style={styles.routeCard}>
+      <View style={styles.themeCard}>
         <View style={styles.cardTop}>
           <Image 
             source={{uri:this.state.data['images'][0]}} 
@@ -216,7 +215,7 @@ var styles = StyleSheet.create({
     lineHeight:23,
     color:'#666',
   },
-  routeCard:{
+  themeCard:{
     margin:8,
     paddingTop:16,
     borderTopWidth:1,
@@ -350,4 +349,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = RouteMain;
+module.exports = ThemeMain;

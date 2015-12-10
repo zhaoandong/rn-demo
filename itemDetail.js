@@ -12,7 +12,7 @@ var Swiper = require('react-native-swiper');
 
 var ParallaxView = require('react-native-parallax-view');
 
-var Routes = require('./routes');
+var Themes = require('./themes');
 var Journals = require('./journals');
 
 var {
@@ -58,11 +58,11 @@ var itemDetail = React.createClass({
     }
     if(this.props.res_type === 2){
       return(
-        <Routes data={this.state.data} key="route" initData={this.props} />
+        <Themes data={this.state.data} key="route" initData={this.props} />
       );
     }else if(this.props.res_type === 1){
       return(
-        <ThemeMain data={this.state.data} key="theme" initData={this.props} />
+        <Routes data={this.state.data} key="theme" initData={this.props} />
       );
     }else{
       return(
@@ -77,7 +77,7 @@ var itemDetail = React.createClass({
 });
 
 
-var ThemeMain = React.createClass({
+var Routes = React.createClass({
   getInitialState:function(){
     return {
       data:this.props.data
