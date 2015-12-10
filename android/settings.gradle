@@ -1,0 +1,3 @@
+rootProject.name = 'chufaba'
+
+include ':app'
