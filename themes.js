@@ -58,30 +58,26 @@ var ThemeMain = React.createClass({
   },
   render: function(){
     return(
-      <View>
-        <ParallaxView
-            backgroundSource={{uri: this.state.data['image']}}
-            windowHeight={w*0.8}
-            style={styles.outter}
-            header={(
-                <View style={styles.itemInner}>
-                    <Text style={styles.title}>{this.state.data['title']}</Text>
-                    <Text style={styles.subtitle}>——·{this.state.data['highlights']}·——</Text>
-                </View>
-            )}
-        >
-          <View style={styles.container}>
-              <Text style={styles.desc}>
-                {this.state.data['desc']}
-              </Text>
-              {
-                this.state.data['nodes'].map(function(detail){
-                  return <ThemeCard data={detail} />
-                })
-              }
-              <Like data={this.state.data['likes']}/>
-          </View>
-        </ParallaxView>
+      <ScrollView style={styles.container}>
+        <Image 
+          source={{uri:this.state.data['image']}} 
+          style={styles.bannerImage} 
+        />
+        <View style={styles.itemInner}>
+            <Text style={styles.title}>{this.state.data['title']}</Text>
+            <Text style={styles.subtitle}>——·{this.state.data['highlights']}·——</Text>
+        </View>
+        <View style={styles.container}>
+            <Text style={styles.desc}>
+              {this.state.data['desc']}
+            </Text>
+            {
+              this.state.data['nodes'].map(function(detail){
+                return <ThemeCard data={detail} />
+              })
+            }
+            <Like data={this.state.data['likes']}/>
+        </View>
         <View style={styles.action}>
           <View style={styles.actionLi}>
             <Image 
@@ -107,7 +103,7 @@ var ThemeMain = React.createClass({
             </View>
           </TouchableHighlight>
         </View>
-      </View>
+      </ScrollView>
     )
   }
 });
@@ -188,6 +184,20 @@ var Like = React.createClass({
 // });
 
 var styles = StyleSheet.create({
+  bannerImage:{
+    height:w*0.8,
+    width:w
+  },
+  bannerBack:{
+    height:w*0.8,
+    width:w,
+    backgroundColor:'rgba(0,0,0,0.3)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position:'absolute',
+    left : 0,
+    top : 0,
+  },
   outter:{
     height:h,
     paddingBottom:48,
@@ -195,6 +205,7 @@ var styles = StyleSheet.create({
   },
   container:{
     backgroundColor:'#f5f5f5',
+    flex:1,
   },
   title:{
     fontSize:24,

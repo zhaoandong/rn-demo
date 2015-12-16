@@ -11,6 +11,7 @@ var {
   NavigatorIOS,
   StyleSheet,
   AlertIOS,
+  View,
 } = React;
 
 var FirstScreen = require('./FirstScreen');
@@ -34,7 +35,6 @@ var chufaba = React.createClass({
           rightButtonTitle: 'Add',
           onRightButtonPress: this._handleNextButtonPress,
         }}
-        
       />
     );
   }

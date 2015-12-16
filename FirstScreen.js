@@ -65,7 +65,7 @@ var FirstScreen = React.createClass({
   },
   render: function() {
     var self =this;
-    if (Platform.OS === 'android') {
+    if (Platform === 'android') {
       return(
         <View><Text>12321321312</Text></View>
       );
