@@ -12,7 +12,6 @@ var Swiper = require('react-native-swiper');
 
 var ParallaxView = require('react-native-parallax-view');
 
-
 var {
   StyleSheet,
   Text,
@@ -26,6 +25,8 @@ var {
   TextInput
 } = React;
 
+var ActionSheetIOS = require('ActionSheetIOS');
+
 var w = Dimensions.get('window').width;
 var h = Dimensions.get('window').height;
 var ThemeMain = React.createClass({
@@ -36,6 +37,7 @@ var ThemeMain = React.createClass({
     }
   },
   share:function(){
+    console.log(ActionSheetIOS);
     ActionSheetIOS.showShareActionSheetWithOptions({
       url: 'https://code.facebook.com',
       message: 'message to go with the shared url',
@@ -59,28 +61,30 @@ var ThemeMain = React.createClass({
   render: function(){
     return(
       <ScrollView style={styles.container}>
-        <Image 
-          source={{uri:this.state.data['image']}} 
-          style={styles.bannerImage} 
-        />
-        <View style={styles.itemInner}>
-            <Text style={styles.title}>{this.state.data['title']}</Text>
-            <Text style={styles.subtitle}>——·{this.state.data['highlights']}·——</Text>
-        </View>
-        <View style={styles.container}>
-            <Text style={styles.desc}>
-              {this.state.data['desc']}
-            </Text>
-            {
-              this.state.data['nodes'].map(function(detail){
-                return <ThemeCard data={detail} />
-              })
-            }
-            <Like data={this.state.data['likes']}/>
-        </View>
+        <ScrollView style={styles.outter}>
+          <Image 
+            source={{uri:this.state.data['image']}} 
+            style={styles.bannerImage} 
+          />
+          <View style={styles.itemInner}>
+              <Text style={styles.title}>{this.state.data['title']}</Text>
+              <Text style={styles.subtitle}>——·{this.state.data['highlights']}·——</Text>
+          </View>
+          <View style={styles.container}>
+              <Text style={styles.desc}>
+                {this.state.data['desc']}
+              </Text>
+              {
+                this.state.data['nodes'].map(function(detail){
+                  return <ThemeCard data={detail} />
+                })
+              }
+              <Like data={this.state.data['likes']}/>
+          </View>
+        </ScrollView>
         <View style={styles.action}>
           <View style={styles.actionLi}>
-            <Image 
+            <Image
               source={{uri:'http://img.chufaba.me//web_assets/activities/simple/test.png'}}
               style={styles.fixedIcon}  
             />
@@ -199,7 +203,7 @@ var styles = StyleSheet.create({
     top : 0,
   },
   outter:{
-    height:h,
+    height:0.9*h,
     paddingBottom:48,
     marginBottom:40,
   },

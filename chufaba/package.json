@@ -1,0 +1,11 @@
+{
+  "name": "chufaba",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native-desktop start"
+  },
+  "dependencies": {
+    "react-native-desktop": "^0.2.0"
+  }
+}

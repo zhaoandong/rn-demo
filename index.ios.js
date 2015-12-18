@@ -17,6 +17,16 @@ var {
 var FirstScreen = require('./FirstScreen');
 var itemDetail = require('./itemDetail');
 
+//ES6 test start
+var map = new Map();
+map.set('first', 'hello');
+map.set('second', 'world');
+
+for (let key of map) {
+  console.log(key);
+}
+//ES6 test end
+
 var chufaba = React.createClass({
   _handleNextButtonPress: function() {
     this.refs.nav.push({
