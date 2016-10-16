@@ -18,4 +18,4 @@
 
 
 ## 运行截图
-![image](http://img.chufaba.me/8a36005069419d137554d497d2236347.png)
+![image](./shots/5.jpg)
