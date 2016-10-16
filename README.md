@@ -16,4 +16,6 @@
 ### 6、running函数
 #### 首先将输入的值用\n切割，并循环用totalPrice函数计算，最后通过一个全局变量，计算出总的价格和花费以及利润，并用dom操作写在页面上
 
-[image](./shots/5.jpg)
+
+## 运行截图
+[image](http://img.chufaba.me/8a36005069419d137554d497d2236347.png)
